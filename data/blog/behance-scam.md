@@ -1,0 +1,115 @@
+---
+title: '來自 Behance 的 NFT 詐騙?!'
+date: 2026-02-09
+summary: '純粹紀錄信件來回始末，沒有任何錢財和人類受傷害'
+tags: ['behance']
+draft: false
+---
+
+## 來自 Behance 的 NFT 詐騙?!
+
+純粹紀錄信件來回始末，沒有任何錢財和人類受傷害
+
+因為近期在求職，才開始注意起信箱裡非電銷的各式信件，難得有純文字、沒有任何花俏圖片的信件吸引我的目光，何況是全英文
+
+大意上是說喜歡我放在 Behanca 上的作品，希望可以和我購買收藏原檔。信件如下
+
+![the first mail](https://cdn-images-1.medium.com/max/800/1*A-L1r6HC2KmItbqOIKT7AQ.png)
+
+這件事情很可疑，直覺是詐騙，但也讓我好奇
+
+1. Behance??? 我都忘記帳號是什麼
+2. 自卑心理：第一時間覺得自己以前做的東西沒價值，不會真的有人想要
+3. 名字很像印度人，有鬼（歧視言論）
+4. 先假定是詐騙，那手法和流程是什麼？要怎麼騙錢？
+
+基於以上幾點好奇，於是我繼續靠著 AI 翻譯和他往來信件
+
+### 先講結論
+
+如果你也有收到類似信件，也想知道這是詐騙，還是真的千里馬遇到伯樂？想知道結果，對過程不好奇的話，可以直接看這段結論
+
+> 以我的案例來說，100% 典型 NFT 詐騙
+
+詐騙手法則是誘導到他建立的拍賣網站，希望你將作品鑄造成 NFT 上架，上架過程中會需要消耗高額的 gas fee（等同手續費），gas fee 就會進入他的口袋！（收取 0.1~0.05 eth 換算等同 200USDT，熊市換好像很划算 🙃）
+
+也有其他可能，商品上架過程中點擊到惡意連結，透過 XSS 竊取瀏覽器中的冷錢包，或是透過錢包地址竊取裡面所有財產等
+
+如果仍抱有希望，還是可以試著聯絡。出現以下關鍵字時：**NFT、auction、web3、需要先付錢上架作品**，就可以 **99.9%** 確認是相同詐騙案例
+
+### Behance 科普
+
+[Behance](https://www.behance.net/) 是 Adobe 旗下一個創作類型作品集的平台，有很多雇主會在上面找創作者，創作者也可以將作品上傳獲得更多曝光
+
+![](https://cdn-images-1.medium.com/max/800/1*YZKpRvrxtGAeJfuAaU6jHQ.png)
+
+behance 是我大學想轉行銷設計時放作品集的平台，包括學生時期接案的校園海報設計、社群小編文案等，不管是哪個現在回頭看都十分青澀
+
+[https://www.behance.net/gallery/60336015/2017](https://www.behance.net/gallery/60336015/2017)
+
+![甚至只有34觀看 XD](https://cdn-images-1.medium.com/max/800/1*LBvCU5sjRo0tMJxI__i4SQ.png)
+
+八年沒有更新的用戶為何會突然被看上呢？詢問 ai 後似乎是沒有持續更新的用戶不清楚自己的價值，更容易受騙上當
+
+### 後續信件來回
+
+回信詢問欣賞的作品是哪些，因為我連我放作品的帳號是哪個都差點找不到
+
+結果還真的傳了連結給我！大學做的東西好令人懷念，現在被社會化的我可能做不出來那麼 pure 的圖
+
+![](https://cdn-images-1.medium.com/max/800/1*_cjn2Ly-_069U9-PTk6fzA.png)
+
+信件中傳送作品連結，證明他真的知道我是誰。表示他非常希望可以購買作品，願意花 2eth，並說明他的背景，正在經營NFT藝術品拍賣，提供[官網連結](https://www.genesisgallery.org/creator/ARTLOVER)，也有經營 [instagram](https://www.instagram.com/creativeart691)
+
+抱著 0.00001%為真的可能性，我去翻遍所有原始檔案可能在的位置。結果翻遍雲端也找不到當初的原檔，只剩下網路截圖的破爛畫質，如果真要賣也不可能 QQ。抱著了勝於無的心態，繼續透過 ai 翻譯信件對話
+
+透過 ai 協助部分如下：
+
+1. 貼上信件內容，分析對方目的
+2. 如果是詐騙，下一步會是什麼，回信關鍵字極度可能會出現哪些
+3. 裝作我已經上鉤的釣魚回覆
+
+![](https://cdn-images-1.medium.com/max/800/1*ScD2Ft_Q2gXCYxIWkWJb_Q.png)
+
+大意為，我找不到原檔只剩下你看到的作品集本身，如果這樣你也要的話，那再請提供更多資訊讓我判斷是否可作為商用授權
+
+到這邊，因為不知道「作品如何被賣出」無法判斷哪一步會被騙錢
+
+![](https://cdn-images-1.medium.com/max/800/1*LMDSBx3dOewFoDmLgKCg8w.png)
+
+來哦 畫重點時間！
+
+- Echelon: A Curated Evolution of Art & Expression 標題虛無標秒
+- it will be held in Edinburgh, UK, this year. 沒有詳細活動時間
+- That's the link to the marketplace where I trade NFTs and where I have my art collection hosted 網站有很多 bug，API 沒接好，bottom 也沒放連結
+
+我進一步詢問更多資訊，關於官網背後的合法機構、合約授權細節、確認作品上傳不會有額外費用
+
+```plaintext
+Please provide:
+- The legal entity name behind Echelon / Genesis Gallery
+- A basic written agreement outlining usage rights, duration, and resale terms
+- Confirmation that no minting, listing, gas, or platform fees are required from me at any stage
+```
+
+很快地，兩個小時後回覆我
+
+![](https://cdn-images-1.medium.com/max/800/1*P2PeIKY98u5L5Y_unhM9kw.png)
+
+🤩 不演了，說白需要鍛造費 0.1eth
+
+我也沒這麼多錢給你騙，這個年代也要有錢才有被騙的資格 QQ
+
+到這裡基本上可以 100% 確定是詐騙，但基於武德還是想把戲演好演滿。我回信又問他，我沒錢付手續費可以買家出嗎
+
+![](https://cdn-images-1.medium.com/max/800/1*31p1InGrNFzJ13ZSZ_ADTQ.png)
+
+對方回覆如下，居然還可以殺價砍半？！
+
+![](https://cdn-images-1.medium.com/max/800/1*U5u9PF6oEtfuCIc1s40c1A.png)
+
+## Last
+
+到這邊也差不多可預想到後續結果，便不繼續信件往來。應該會持續鬼打牆說服我上傳作品吧
+
+紀錄這段信件對話，希望可協助遇到同樣開頭信件的人提高警覺
