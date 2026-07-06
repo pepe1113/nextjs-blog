@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/forms";
+@plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 @source '../node_modules/pliny';
 @custom-variant dark (&:where(.dark, .dark *));
@@ -7,7 +7,8 @@
 /* Core theme configuration */
 @theme {
   /* Font families */
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  --font-sans:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Colors */
@@ -75,6 +76,50 @@
     outline: 2px solid;
     border-radius: var(--radius-sm);
     outline-color: var(--color-primary-500);
+  }
+}
+
+.postToc {
+  @apply bg-primary-900/10 ring-primary-700/15 mb-8 rounded-lg border border-white/70 px-5 py-4 text-sm leading-6 ring-1;
+  color: var(--color-primary-900);
+
+  summary {
+    @apply cursor-pointer pt-0 pb-1 text-sm font-semibold uppercase;
+    letter-spacing: 0.24em;
+  }
+
+  a {
+    @apply text-primary-900/70 no-underline transition-colors duration-200;
+    &:hover {
+      @apply text-primary-900;
+    }
+  }
+
+  li + li {
+    @apply mt-2;
+  }
+
+  ul {
+    @apply m-0 list-none p-0;
+  }
+
+  ul ul {
+    @apply mt-2 border-l border-amber-900/20 pl-4;
+  }
+}
+
+.dark .postToc {
+  @apply border-gray-400/20 text-primary-500 bg-gray-500/20 ring-gray-400/20;
+
+  a {
+    @apply text-white/70;
+    &:hover {
+      @apply text-white;
+    }
+  }
+
+  ul ul {
+    @apply border-white/20;
   }
 }
 
