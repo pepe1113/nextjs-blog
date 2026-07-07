@@ -3,7 +3,7 @@ const siteMetadata = {
   title: "Paige's Whisper",
   author: 'paige wang',
   headerTitle: "Paige's Whisper",
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: '記錄工作、記錄生活、與自我對話的寫作練習。',
   language: 'en',
   theme: 'system', // system, dark or light
   siteUrl: 'https://peiwww-blog.netlify.app/',

@@ -8,34 +8,35 @@
 @theme {
   /* Font families */
   --font-sans:
-    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    var(--font-poppins), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Colors */
   /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
-  --color-primary-50: oklch(98.7% 0.022 95.277);
-  --color-primary-100: oklch(96.2% 0.059 95.617);
-  --color-primary-200: oklch(92.4% 0.12 95.746);
-  --color-primary-300: oklch(87.9% 0.169 91.605);
-  --color-primary-400: oklch(82.8% 0.189 84.429);
-  --color-primary-500: oklch(76.9% 0.188 70.08);
-  --color-primary-600: oklch(66.6% 0.179 58.318);
-  --color-primary-700: oklch(55.5% 0.163 48.998);
-  --color-primary-800: oklch(47.3% 0.137 46.201);
-  --color-primary-900: oklch(41.4% 0.112 45.904);
-  --color-primary-950: oklch(27.9% 0.077 45.635);
 
-  --color-gray-50: oklch(0.985 0.002 247.839);
-  --color-gray-100: oklch(0.967 0.003 264.542);
-  --color-gray-200: oklch(0.928 0.006 264.531);
-  --color-gray-300: oklch(0.872 0.01 258.338);
-  --color-gray-400: oklch(0.707 0.022 261.325);
-  --color-gray-500: oklch(0.551 0.027 264.364);
-  --color-gray-600: oklch(0.446 0.03 256.802);
-  --color-gray-700: oklch(0.373 0.034 259.733);
-  --color-gray-800: oklch(0.278 0.033 256.848);
-  --color-gray-900: oklch(0.21 0.034 264.665);
-  --color-gray-950: oklch(0.13 0.028 261.692);
+  --color-primary-50: oklch(96.2% 0.018 272.314);
+  --color-primary-100: oklch(93% 0.034 272.788);
+  --color-primary-200: oklch(87% 0.065 274.039);
+  --color-primary-300: oklch(78.5% 0.115 274.713);
+  --color-primary-400: oklch(67.3% 0.182 276.935);
+  --color-primary-500: oklch(58.5% 0.233 277.117);
+  --color-primary-600: oklch(51.1% 0.262 276.966);
+  --color-primary-700: oklch(45.7% 0.24 277.023);
+  --color-primary-800: oklch(39.8% 0.195 277.366);
+  --color-primary-900: oklch(35.9% 0.144 278.697);
+  --color-primary-950: oklch(25.7% 0.09 281.288);
+
+  --color-gray-50: oklch(98.5% 0 0);
+  --color-gray-100: oklch(96.7% 0.001 286.375);
+  --color-gray-200: oklch(92% 0.004 286.32);
+  --color-gray-300: oklch(87.1% 0.006 286.286);
+  --color-gray-400: oklch(70.5% 0.015 286.067);
+  --color-gray-500: oklch(55.2% 0.016 285.938);
+  --color-gray-600: oklch(44.2% 0.017 285.786);
+  --color-gray-700: oklch(37% 0.013 285.805);
+  --color-gray-800: oklch(27.4% 0.006 286.033);
+  --color-gray-900: oklch(21% 0.006 285.885);
+  --color-gray-950: oklch(14.1% 0.005 285.823);
 
   /* Line heights */
   --line-height-11: 2.75rem;
@@ -47,6 +48,10 @@
   --z-60: 60;
   --z-70: 70;
   --z-80: 80;
+
+  /* Custom theme color */
+  --color-bg-dark: var(--color-gray-800);
+  --color-bg-light: #fff;
 }
 
 /*
@@ -79,12 +84,13 @@
   }
 }
 
+/* Table of contents */
 .postToc {
   @apply bg-primary-900/10 ring-primary-700/15 mb-8 rounded-lg border border-white/70 px-5 py-4 text-sm leading-6 ring-1;
   color: var(--color-primary-900);
 
   summary {
-    @apply cursor-pointer pt-0 pb-1 text-sm font-semibold uppercase;
+    @apply cursor-pointer p-0 text-sm font-semibold uppercase;
     letter-spacing: 0.24em;
   }
 
@@ -95,12 +101,12 @@
     }
   }
 
-  li + li {
-    @apply mt-2;
+  li {
+    @apply my-0;
   }
 
   ul {
-    @apply m-0 list-none p-0;
+    @apply  list-none p-0;
   }
 
   ul ul {
@@ -109,7 +115,7 @@
 }
 
 .dark .postToc {
-  @apply border-gray-400/20 text-primary-500 bg-gray-500/20 ring-gray-400/20;
+  @apply border-primary-400/10 text-primary-400 bg-primary-400/10 ;
 
   a {
     @apply text-white/70;
@@ -123,12 +129,38 @@
   }
 }
 
+/* Table of contents END */
+
+.articleNavItem {
+  @apply relative w-fit pb-2;
+}
+
+.articleNavItem::after {
+  @apply absolute bottom-0 left-0 w-full border-b border-primary-500 content-[''];
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.articleNavItem:hover::after,
+.articleNavItem:focus-within::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .articleNavItem::after {
+    transition: none;
+  }
+}
+
 @layer utilities {
   .prose {
     & a {
-      color: var(--color-primary-500);
+      @apply underline-offset-6 decoration-1 decoration-primary-400 hover:decoration-primary-300 space-x-1;
+      padding: 0 0.125rem;
+      color: var(--color-primary-400);
       &:hover {
-        color: var(--color-primary-600);
+        color: var(--color-primary-300);
       }
       & code {
         color: var(--color-primary-400);

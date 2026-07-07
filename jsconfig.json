@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
       "@/css/*": ["css/*"],
+      "css/*": ["css/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   }
