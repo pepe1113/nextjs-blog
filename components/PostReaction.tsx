@@ -23,7 +23,7 @@ export default function PostReaction({ slug }: Props) {
     const savedClaps = Number(localStorage.getItem(storageKey) ?? 0)
     setLocalClaps(Number.isFinite(savedClaps) ? Math.min(savedClaps, MAX_LOCAL_CLAPS) : 0)
 
-    fetch(`/api/reactions?slug=${encodeURIComponent(slug)}`)
+    fetch(`/api/reactions/?slug=${encodeURIComponent(slug)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject()))
       .then((data: { clapCount?: number }) => setClapCount(data.clapCount ?? 0))
       .catch(() => setError('拍手數載入失敗'))
@@ -49,7 +49,7 @@ export default function PostReaction({ slug }: Props) {
       pendingDelta.current = 0
 
       try {
-        const response = await fetch('/api/reactions', {
+        const response = await fetch('/api/reactions/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ slug, delta }),
