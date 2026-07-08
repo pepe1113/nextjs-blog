@@ -51,7 +51,7 @@
 
   /* Custom theme color */
   --color-bg-dark: var(--color-gray-800);
-  --color-bg-light: #fff;
+  --color-bg-light: var(--color-primary-50/50);
 }
 
 /*
