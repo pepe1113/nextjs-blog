@@ -66,7 +66,13 @@ export async function POST(request: NextRequest) {
   const slug = body?.slug
   const delta = body?.delta
 
-  if (!isValidSlug(slug) || !Number.isInteger(delta) || delta < 1 || delta > 10) {
+  if (
+    !isValidSlug(slug) ||
+    typeof delta !== 'number' ||
+    !Number.isInteger(delta) ||
+    delta < 1 ||
+    delta > 10
+  ) {
     return NextResponse.json({ error: 'Invalid reaction' }, { status: 400 })
   }
 
