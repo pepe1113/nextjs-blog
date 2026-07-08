@@ -6,6 +6,13 @@ create table if not exists public.post_reactions (
 
 alter table public.post_reactions enable row level security;
 
+create policy "Service role can manage post reactions"
+on public.post_reactions
+for all
+to service_role
+using (true)
+with check (true);
+
 revoke all on table public.post_reactions from anon, authenticated;
 grant select, insert, update on table public.post_reactions to service_role;
 
