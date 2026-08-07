@@ -9,9 +9,9 @@ export default function Home({ posts }: { posts: CoreContent<Blog>[] }) {
     <>
       <div>
         <header className="pt-10 pb-16 sm:pt-16 sm:pb-20">
-          <h1 className="text-3xl font-semibold tracking-tight text-gray-950 dark:text-gray-100">
-            文章
-          </h1>
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-950 dark:text-gray-100">
+            Welcome
+          </h2>
           <p className="mt-3 max-w-xl text-base leading-7 text-gray-600 dark:text-gray-400">
             {siteMetadata.description}
           </p>
