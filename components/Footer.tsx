@@ -1,12 +1,11 @@
-import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
+    <footer className="mt-20 border-t border-gray-200 py-8 dark:border-gray-700">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
           <SocialIcon kind="github" href={siteMetadata.github} size={6} />
           <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} />
@@ -19,18 +18,8 @@ export default function Footer() {
           <SocialIcon kind="threads" href={siteMetadata.threads} size={6} />
           <SocialIcon kind="medium" href={siteMetadata.medium} size={6} />
         </div>
-        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.title}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <div className="ml-1">made with Nextjs + Tailwind + supabase</div>
-        </div>
-        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-          thanks ♡{' '}
-          <Link className="underline" href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
-            template by timlrx
-          </Link>
+        <div className="text-sm text-gray-500 dark:text-gray-400">
+          © {new Date().getFullYear()} {siteMetadata.title}
         </div>
       </div>
     </footer>

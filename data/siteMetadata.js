@@ -1,10 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: "Paige's Whisper",
-  author: 'paige wang',
-  headerTitle: "Paige's Whisper",
+  title: `Pei.Blog`,
+  author: 'pei wang',
+  headerTitle: `Pei.Blog`,
   description: '記錄工作、記錄生活、與自我對話的寫作練習。',
-  language: 'en',
+  language: 'zh-hant',
   theme: 'system', // system, dark or light
   siteUrl: 'https://peiwww-blog.netlify.app/',
   siteRepo: 'https://github.com/pepe1113/nextjs-blog',

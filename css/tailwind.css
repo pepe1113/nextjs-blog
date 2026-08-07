@@ -14,17 +14,17 @@
   /* Colors */
   /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
 
-  --color-primary-50: oklch(96.2% 0.018 272.314);
-  --color-primary-100: oklch(93% 0.034 272.788);
-  --color-primary-200: oklch(87% 0.065 274.039);
-  --color-primary-300: oklch(78.5% 0.115 274.713);
-  --color-primary-400: oklch(67.3% 0.182 276.935);
-  --color-primary-500: oklch(58.5% 0.233 277.117);
-  --color-primary-600: oklch(51.1% 0.262 276.966);
-  --color-primary-700: oklch(45.7% 0.24 277.023);
-  --color-primary-800: oklch(39.8% 0.195 277.366);
-  --color-primary-900: oklch(35.9% 0.144 278.697);
-  --color-primary-950: oklch(25.7% 0.09 281.288);
+  --color-primary-50: oklch(97.9% 0.021 166.113);
+  --color-primary-100: oklch(95% 0.052 163.051);
+  --color-primary-200: oklch(90.5% 0.093 164.15);
+  --color-primary-300: oklch(84.5% 0.143 164.978);
+  --color-primary-400: oklch(76.5% 0.177 163.223);
+  --color-primary-500: oklch(69.6% 0.17 162.48);
+  --color-primary-600: oklch(59.6% 0.145 163.225);
+  --color-primary-700: oklch(50.8% 0.118 165.612);
+  --color-primary-800: oklch(43.2% 0.095 166.913);
+  --color-primary-900: oklch(37.8% 0.077 168.94);
+  --color-primary-950: oklch(26.2% 0.051 172.552);
 
   --color-gray-50: oklch(98.5% 0 0);
   --color-gray-100: oklch(96.7% 0.001 286.375);
@@ -52,6 +52,20 @@
   /* Custom theme color */
   --color-bg-dark: var(--color-gray-800);
   --color-bg-light: var(--color-gray-50);
+}
+
+.dark {
+  --color-primary-50: var(--color-lime-50);
+  --color-primary-100: var(--color-lime-100);
+  --color-primary-200: var(--color-lime-200);
+  --color-primary-300: var(--color-lime-300);
+  --color-primary-400: var(--color-lime-400);
+  --color-primary-500: var(--color-lime-500);
+  --color-primary-600: var(--color-lime-600);
+  --color-primary-700: var(--color-lime-700);
+  --color-primary-800: var(--color-lime-800);
+  --color-primary-900: var(--color-lime-900);
+  --color-primary-950: var(--color-lime-950);
 }
 
 /*
@@ -86,19 +100,21 @@
 
 /* Table of contents */
 .postToc {
-  @apply bg-primary-900/10 ring-primary-700/15 mb-8 rounded-lg border border-white/70 px-5 py-4 text-sm leading-6 ring-1;
-  color: var(--color-primary-900);
+  @apply mb-10 text-sm leading-6 text-gray-600 dark:text-gray-400;
 
-  summary {
-    @apply cursor-pointer p-0 text-sm font-semibold uppercase;
-    letter-spacing: 0.24em;
+  .postTocTitle {
+    @apply mb-3 text-sm font-medium text-gray-900 dark:text-gray-100;
   }
 
   a {
-    @apply text-primary-900/70 no-underline transition-colors duration-200;
+    @apply text-gray-600 no-underline transition-colors duration-200 dark:text-gray-400;
     &:hover {
-      @apply text-primary-900;
+      @apply text-primary-600 dark:text-primary-400;
     }
+  }
+
+  a[data-active] {
+    @apply text-primary-600 font-medium dark:text-primary-400;
   }
 
   li {
@@ -106,37 +122,52 @@
   }
 
   ul {
-    @apply  list-none p-0;
+    @apply list-none p-0;
   }
 
   ul ul {
-    @apply mt-2 border-l border-amber-900/20 pl-4;
+    @apply mt-2 pl-4;
   }
 }
 
-.dark .postToc {
-  @apply border-primary-400/10 text-primary-400 bg-primary-400/10 ;
+.postContent {
+  @apply py-10;
+}
 
-  a {
-    @apply text-white/70;
-    &:hover {
-      @apply text-white;
-    }
+@media (min-width: 80rem) {
+  .postContent {
+    display: grid;
+    grid-template-columns: minmax(0, 48rem) 12rem;
+    justify-content: space-between;
+    width: calc(50vw + 23rem);
   }
 
-  ul ul {
-    @apply border-white/20;
+  .postContent > .prose {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .postToc {
+    position: sticky;
+    top: 2rem;
+    right: 0;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    max-height: calc(100dvh - 4rem);
+    margin-bottom: 0;
+    overflow-y: auto;
   }
 }
 
 /* Table of contents END */
 
 .articleNavItem {
-  @apply relative w-fit pb-2;
+  @apply relative w-fit max-w-xs pb-2;
 }
 
 .articleNavItem::after {
-  @apply absolute bottom-0 left-0 w-full border-b border-primary-500 content-[''];
+  @apply border-primary-500 absolute bottom-0 left-0 w-full border-b content-[''];
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -152,7 +183,7 @@
 }
 
 .postReactionButton {
-  @apply inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-800 shadow-sm transition hover:border-primary-400 hover:text-primary-500 disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-primary-400 dark:hover:text-primary-400;
+  @apply hover:border-primary-400 hover:text-primary-500 dark:hover:border-primary-400 dark:hover:text-primary-400 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-base font-medium text-gray-800 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100;
 }
 
 .postReactionButton:active:not(:disabled) {
@@ -160,8 +191,12 @@
 }
 
 .postReactionBurst {
-  @apply pointer-events-none absolute left-16 text-sm font-semibold text-primary-500;
+  @apply text-primary-600 pointer-events-none absolute left-16 text-sm font-semibold;
   animation: postReactionBurst 700ms ease-out both;
+}
+
+.dark .postReactionBurst {
+  @apply text-primary-400;
 }
 
 .postReactionMessage {
@@ -198,14 +233,14 @@
 @layer utilities {
   .prose {
     & a {
-      @apply underline-offset-6 decoration-1 decoration-primary-400 hover:decoration-primary-300 space-x-1;
+      @apply decoration-primary-500 hover:decoration-primary-400 space-x-1 decoration-1 underline-offset-6;
       padding: 0 0.125rem;
-      color: var(--color-primary-400);
+      color: var(--color-primary-600);
       &:hover {
-        color: var(--color-primary-300);
+        color: var(--color-primary-500);
       }
       & code {
-        color: var(--color-primary-400);
+        color: var(--color-primary-600);
       }
     }
     & :where(h1, h2) {
@@ -216,15 +251,15 @@
       font-weight: 600;
     }
     & :where(code):not(pre code) {
-      color: var(--color-indigo-500);
+      color: var(--color-primary-600);
     }
   }
 
-  .prose-invert {
+  .dark .prose {
     & a {
-      color: var(--color-primary-500);
+      color: var(--color-primary-400);
       &:hover {
-        color: var(--color-primary-400);
+        color: var(--color-primary-300);
       }
       & code {
         color: var(--color-primary-400);
@@ -232,6 +267,9 @@
     }
     & :where(h1, h2, h3, h4, h5, h6) {
       color: var(--color-gray-100);
+    }
+    & :where(code):not(pre code) {
+      color: var(--color-primary-300);
     }
   }
 }

@@ -10,6 +10,7 @@ import type { Authors, Blog } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
+import PostToc from '@/components/PostToc'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
@@ -113,10 +114,12 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <div className="postToc">
-          <TOCInline toc={post.toc} asDisclosure />
+        <PostToc>
+          <TOCInline toc={post.toc} />
+        </PostToc>
+        <div className="prose dark:prose-invert max-w-none min-w-0">
+          <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
         </div>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </Layout>
     </>
   )
