@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-baseline justify-between">
+        <div className="hover:text-primary-500 dark:hover:text-primary-400 flex items-baseline justify-between">
           <div className="mr-3 text-base" aria-hidden="true">
             ᕕ ( ᐛ ) ᕗ
           </div>
