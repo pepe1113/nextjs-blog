@@ -3,7 +3,7 @@ const siteMetadata = {
   title: `Pei.Blog`,
   author: 'pei wang',
   headerTitle: `Pei.Blog`,
-  description: '記錄工作、記錄生活、與自我對話的寫作練習。',
+  description: `A blog created by pei wang. Feel free to contact me if you have any questions or ideas.`,
   language: 'zh-hant',
   theme: 'system', // system, dark or light
   siteUrl: 'https://peiwww-blog.netlify.app/',
