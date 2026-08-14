@@ -114,9 +114,11 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <PostToc>
-          <TOCInline toc={post.toc} />
-        </PostToc>
+        {post.toc.length > 0 && (
+          <PostToc>
+            <TOCInline toc={post.toc} />
+          </PostToc>
+        )}
         <div className="prose dark:prose-invert max-w-none min-w-0">
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
         </div>

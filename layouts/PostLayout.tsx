@@ -47,7 +47,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             <div>
               {/* blog 文章本體 */}
               <div className="postContent">{children}</div>
-              <PostReaction slug={slug} />
+              {/* <PostReaction slug={slug} /> */}
               <div className="py-6 text-sm text-gray-600 dark:text-gray-400">
                 <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter

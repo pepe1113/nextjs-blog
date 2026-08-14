@@ -114,7 +114,7 @@
   }
 
   a[data-active] {
-    @apply text-primary-600 font-medium dark:text-primary-400;
+    @apply text-primary-600 dark:text-primary-400 font-medium;
   }
 
   li {
@@ -176,6 +176,67 @@
 .articleNavItem:hover::after,
 .articleNavItem:focus-within::after {
   transform: scaleX(1);
+}
+
+.notice {
+  --notice-color: var(--color-gray-600);
+  margin-block: 1.5rem;
+  border-left: 0.25rem solid var(--notice-color);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--color-gray-100);
+  padding: 1rem 1.25rem;
+}
+
+.dark .notice {
+  --notice-color: var(--color-gray-400);
+  background: var(--color-gray-900);
+}
+
+.notice-tip {
+  --notice-color: var(--color-primary-600);
+}
+
+.notice-info {
+  --notice-color: var(--color-sky-600);
+}
+
+.notice-warning {
+  --notice-color: var(--color-amber-600);
+}
+
+.notice-danger {
+  --notice-color: var(--color-red-600);
+}
+
+.dark .notice-tip {
+  --notice-color: var(--color-primary-400);
+}
+
+.dark .notice-info {
+  --notice-color: var(--color-sky-400);
+}
+
+.dark .notice-warning {
+  --notice-color: var(--color-amber-400);
+}
+
+.dark .notice-danger {
+  --notice-color: var(--color-red-400);
+}
+
+.noticeTitle {
+  margin: 0 0 0.5rem;
+  color: var(--notice-color);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.noticeBody > :first-child {
+  margin-top: 0;
+}
+
+.noticeBody > :last-child {
+  margin-bottom: 0;
 }
 
 .postReaction {
@@ -252,6 +313,20 @@
     }
     & :where(code):not(pre code) {
       color: var(--color-primary-600);
+    }
+    & blockquote {
+      @apply border-primary-500 rounded-r-md border-l-4 bg-gray-100 px-5 py-3 text-gray-700 dark:bg-gray-900 dark:text-gray-200;
+      font-style: normal;
+    }
+    & blockquote > :first-child {
+      margin-top: 0;
+    }
+    & blockquote > :last-child {
+      margin-bottom: 0;
+    }
+    & blockquote p:first-of-type::before,
+    & blockquote p:last-of-type::after {
+      content: none;
     }
   }
 

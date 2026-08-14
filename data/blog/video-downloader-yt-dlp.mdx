@@ -1,0 +1,47 @@
+---
+title: '影片下載工具 yt-dlp'
+date: "2026-08-14"
+lastmod: "2026-08-14"
+tags: []
+draft: false
+summary: '簡單紀錄 yt-dlp command 使用方式'
+images: []
+---
+
+[yt-dlp](https://github.com/yt-dlp/yt-dlp#usage-and-options) 是一個可透過終端機下載影片的神級工具，支援影片來源和格式很豐富。
+除了常見 youtube、facebook 等社群網站影片外，也可以抓到像 dramaQ 那類非常見 media player 的影片，也支援下載指定時間段落、檔案類型、字幕有無、純音檔等。
+
+雖然很久以前就知道，但文件和參數設定相對門檻高，久久用一次都要重新找指令，也沒有看到滿意和持續維護的 GUI。想過用 ai 重新刻一個，考慮到實際使用場景頻率不多，且我毛也是偏多，如果頭洗下去光是 UI 肯定今晚無法睡了。也想維持在終端機操作的乾淨俐落。
+
+這次在 reddit 上看到透過 command 腳本包參數和指令的方式，操作同樣會打開終端機，但只要依照文字輸入影片網址、時間段，就可以下載影片了，同時也可以看到 log，方便許多。
+
+
+<Notice type="tip">
+
+reddit 來源適合 window 用戶：https://www.reddit.com/r/software/comments/1la096i/ytdlp_best_video_downloader_and_tips_on_how_to/
+
+</Notice>
+
+
+1. [github]([https://github.com/yt-dlp/yt-dlp/releases/](https://github.com/yt-dlp/yt-dlp/releases/)) 安裝最新版本 yt-dlp，mac 可用 homebrew
+2. 桌面或任何地新增資料夾 `out`，這是影片輸出位置，再新增一個檔案 `download_video.command` 
+3. 用任何你想用的 editor 加上 yt-dlp 指令和習慣使用參數，例如以下：
+
+```
+set /p url=Enter video url: 
+yt-dlp -o "out/%%(title)s.%%(ext)s" %url%
+```
+
+That's it! 下次下載影片時點開 `download_video.command`，會打開終端機，依照指示貼上影片網址，輸出完成的影片會自動存入指定資料夾 `out` ，檔名也會是影片 title
+
+<div className='my-20' />
+
+**或者，更懶一點**
+
+將上面步驟貼給 codex，讓 agent 幫你完成，並加上更多選項
+- 本地化做成中文指示
+- 時間區段輸入
+- 自訂檔案名稱
+- 輸入完成跳出路徑方便確認
+- 同名檔案處理方式：取代或重新命名
+- 做成可編輯輸入 zsh vared 可修正手殘打錯部分

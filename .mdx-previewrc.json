@@ -1,0 +1,6 @@
+{
+  "components": {
+    "Notice": "./components/Notice.tsx",
+    "SocialAccountLink": "./components/SocialAccountLink.tsx"
+  }
+}

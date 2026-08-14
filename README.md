@@ -332,6 +332,7 @@ Consider removing the following features that cannot be used in a static build:
 ## Frequently Asked Questions
 
 - [How can I add a custom MDX component?](/faq/custom-mdx-component.md)
+- [Markdown / MDX component template](/faq/markdown-components-template.md)
 - [How can I customize the `kbar` search?](/faq/customize-kbar-search.md)
 - [Deploy with docker](/faq/deploy-with-docker.md)
 
