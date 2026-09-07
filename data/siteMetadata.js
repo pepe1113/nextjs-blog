@@ -6,7 +6,7 @@ const siteMetadata = {
   description: `A blog created by pei wang. Feel free to contact me if you have any questions or ideas.`,
   language: 'zh-hant',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://peiwww-blog.netlify.app/',
+  siteUrl: 'https://blog.peiwang.dev/',
   siteRepo: 'https://github.com/pepe1113/nextjs-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
