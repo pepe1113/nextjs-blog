@@ -33,7 +33,7 @@ const Blank = () => <svg className="h-6 w-6" />
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
@@ -43,7 +43,7 @@ const ThemeSwitch = () => {
       <div className="hover:text-primary-500 flex items-center justify-center">
         <Button
           aria-label="Theme switcher"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         >
           {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
         </Button>
