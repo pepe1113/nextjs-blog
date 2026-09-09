@@ -47,7 +47,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             <div>
               {/* blog 文章本體 */}
               <div className="postContent">{children}</div>
-              {/* <PostReaction slug={slug} /> */}
+              <PostReaction slug={slug} />
               <div className="py-6 text-sm text-gray-600 dark:text-gray-400">
                 <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter
@@ -81,8 +81,8 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     className="grid gap-8 border-t border-gray-200 py-8 sm:grid-cols-2 dark:border-gray-700"
                     aria-label="文章導覽"
                   >
-                    {prev && prev.path && (
-                      <div className="articleNavItem">
+                    {prev && prev.path && prev.title && (
+                      <div className="articleNavItem col-start-1">
                         <h2 className="mb-1 text-sm text-gray-500 dark:text-gray-400">
                           Previous Article
                         </h2>
@@ -91,8 +91,9 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                         </div>
                       </div>
                     )}
-                    {next && next.path && (
-                      <div className="articleNavItem sm:justify-self-end sm:text-right">
+
+                    {next && next.path && next.title && (
+                      <div className="articleNavItem col-start-2 justify-self-end sm:text-right">
                         <h2 className="mb-1 text-sm text-gray-500 dark:text-gray-400">
                           Next Article
                         </h2>

@@ -17,7 +17,7 @@ const Header = () => {
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="hover:text-primary-500 dark:hover:text-primary-400 flex transform items-center justify-between transition duration-700">
           <div className="mr-3 text-lg font-extrabold" aria-hidden="true">
-            ʕ´• ᴥ•̥`ʔ
+            (｢･ω･)｢
           </div>
           <div className="hidden text-3xl font-extrabold tracking-normal sm:block">
             {siteMetadata.headerTitle}

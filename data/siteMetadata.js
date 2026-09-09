@@ -3,7 +3,7 @@ const siteMetadata = {
   title: `Pei.Blog`,
   author: 'pei wang',
   headerTitle: `Pei.Blog`,
-  description: `A blog created by pei wang. Feel free to contact me if you have any questions or ideas.`,
+  description: `Hi 歡迎來到這裡`,
   language: 'zh-hant',
   theme: 'system', // system, dark or light
   siteUrl: 'https://blog.peiwang.dev/',

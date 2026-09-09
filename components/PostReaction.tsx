@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const MAX_LOCAL_CLAPS = 10
+const MAX_LOCAL_CLAPS = 1
 const FLUSH_DELAY_MS = 400
 
 type Props = {
@@ -52,7 +52,7 @@ export default function PostReaction({ slug }: Props) {
         const response = await fetch('/api/reactions/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ slug, delta }),
+          body: JSON.stringify({ slug, delta: 1 }),
         })
 
         if (!response.ok) throw new Error('Failed to save reaction')
@@ -91,16 +91,9 @@ export default function PostReaction({ slug }: Props) {
 
   return (
     <div className="postReaction">
-      <button
-        type="button"
-        className="postReactionButton"
-        onClick={clap}
-        disabled={isMaxed}
-        aria-label={isMaxed ? '已拍滿 10 次' : '為這篇文章拍手'}
-      >
-        <span aria-hidden="true">👏</span>
-        <span>{isMaxed ? '已拍滿' : clapCount}</span>
-        {isMaxed && <span>{clapCount}</span>}
+      <button type="button" className="postReactionButton" onClick={clap} disabled={isMaxed}>
+        <span aria-hidden="true">♡</span>
+        <span className="text-lg">{clapCount}</span>
       </button>
       {burstCount > 0 && (
         <span key={burstKey} className="postReactionBurst" aria-hidden="true">
