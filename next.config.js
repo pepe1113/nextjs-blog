@@ -82,6 +82,10 @@ module.exports = () => {
       remotePatterns: [
         {
           protocol: 'https',
+          hostname: 'img.peiwang.dev',
+        },
+        {
+          protocol: 'https',
           hostname: 'picsum.photos',
         },
       ],

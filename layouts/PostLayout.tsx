@@ -1,8 +1,10 @@
 import { ReactNode } from 'react'
+import Bleed from 'pliny/ui/Bleed'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import Comments from '@/components/Comments'
+import Image from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
@@ -24,12 +26,21 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, readingTime } = content
+  const { filePath, path, slug, date, title, tags, readingTime, images } = content
   const basePath = path.split('/')[0]
+  const displayImage =
+    images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
 
   return (
     <SectionContainer>
       <ScrollTopAndComment />
+      {images?.[0] && (
+        <div className="w-full">
+          <div className="relative aspect-2/1 w-full">
+            <Image src={displayImage} alt={title} fill className="object-cover" />
+          </div>
+        </div>
+      )}
       <article>
         <div>
           <header className="border-b border-gray-200 pt-10 pb-8 dark:border-gray-700">
