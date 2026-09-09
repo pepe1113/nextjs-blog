@@ -26,7 +26,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, readingTime, images } = content
+  const { filePath, path, slug, date, title, tags, readingTime, images, summary } = content
   const basePath = path.split('/')[0]
   const displayImage =
     images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
@@ -49,6 +49,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                 <PageTitle>{title}</PageTitle>
               </div>
               <div className="text-sm leading-6 text-gray-500 dark:text-gray-400">
+                {summary && <p className="mb-3 text-base">{summary}</p>}
                 <time dateTime={date}>{format(parseISO(date), 'MMMM d, yyyy')}</time>
                 <span className="ml-4">read {Math.max(1, Math.ceil(readingTime.minutes))} min</span>
               </div>
