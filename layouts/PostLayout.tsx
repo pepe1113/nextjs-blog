@@ -28,13 +28,12 @@ interface LayoutProps {
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, readingTime, images, summary } = content
   const basePath = path.split('/')[0]
-  const displayImage =
-    images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
+  const displayImage = images && images.length > 0 ? images[0] : ''
 
   return (
     <SectionContainer>
       <ScrollTopAndComment />
-      {images?.[0] && (
+      {displayImage && (
         <div className="w-full">
           <div className="relative aspect-2/1 w-full">
             <Image src={displayImage} alt={title} fill className="object-cover" />
