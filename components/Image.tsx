@@ -7,7 +7,7 @@ const Image = ({ src, ...rest }: ImageProps) => {
     (src && String(src).startsWith('https://img.peiwang.dev')) ||
     String(src).startsWith('https://images.unsplash.com')
   ) {
-    return <NextImage src={src} {...rest} />
+    return <NextImage src={src} {...rest} unoptimized />
   }
   return <NextImage src={`${basePath || ''}${src}`} {...rest} />
 }
